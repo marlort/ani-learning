@@ -4,8 +4,9 @@ import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import BrandBanner from "@/components/BrandBanner";
-import CourseSearch from "@/components/CourseSearch";
-import { motion } from "framer-motion";
+import CourseSearch from "@/components/ArticleCategory";
+import Contact from "@/components/Contact";
+import { motion } from "motion/react";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         height={300}
         className="absolute top-0 w-full object-cover opacity-80"
       />
-      {/* ส่วนเนื้อหาหลัก แบ่งเป็น 2 ฝั่ง */}
+      
       <main>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -53,8 +54,10 @@ export default function Home() {
         transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <Footer />
+        <Contact />
       </motion.div>
+
+        <Footer />
     </div>
   );
 }

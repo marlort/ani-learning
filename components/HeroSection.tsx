@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Play } from "lucide-react";
-import "./css/CTAButton.css";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
@@ -36,26 +36,23 @@ const HeroSection = () => {
 
       {/* CTA Buttons */}
       <div className="flex gap-4 mb-12 items-center">
-        <Link href="/courses" className="primary-button flex rounded-full">
-          Get Started
-        </Link>
+        <Button asChild size="lg" className="rounded-full">
+          <Link href="/courses">Get Started</Link>
+        </Button>
 
-        <motion.button whileHover={{ scale: 1.05 }} className="flex">
-          <Link
-            href="/about"
-            className="flex items-center gap-2 px-8 py-3 rounded-full font-semibold
-                 bg-white text-gray-700 shadow transition-all duration-300
-                 hover:bg-gray-100"
-          >
-            <motion.div
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Play size={22} />
-            </motion.div>
-            Watch Video
-          </Link>
-        </motion.button>
+        <motion.div whileHover={{ scale: 1.05 }} className="flex">
+          <Button asChild variant="outline" size="lg" className="gap-2 rounded-full">
+            <Link href="/about">
+              <motion.span
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Play size={22} />
+              </motion.span>
+              Watch Video
+            </Link>
+          </Button>
+        </motion.div>
       </div>
 
       <motion.div

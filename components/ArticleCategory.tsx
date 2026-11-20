@@ -2,8 +2,9 @@
 
 import { Search, GraduationCap, BookOpen, Users } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const CourseSearch = () => {
   const [focused, setFocused] = useState(false);
@@ -15,29 +16,30 @@ const CourseSearch = () => {
           initial={{ borderRadius: 30 }}
           animate={{ borderRadius: focused ? 8 : 30 }}
           transition={{ duration: 0.5 }}
-          className="relative flex items-center w-full max-w-xl mx-auto bg-gray-100 px-10 py-2"
+          className="relative flex items-center w-full max-w-xl mx-auto bg-gray-100 px-4"
         >
-            <Search size={22} />
           {/* Input */}
           <input
             type="text"
             placeholder="Search Courses..."
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            className="flex-1 px-6 py-4 text-base bg-transparent border-none 
+            className="flex-1 px-4 py-4 text-base bg-transparent border-none 
                      focus:outline-none placeholder-gray-400"
           />
 
           {/* Search Button */}
-          <motion.button
-            type="submit"
-            whileHover={{ scale: 1.1, color: "#6d28d9" }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="flex items-center justify-center text-gray-400"
-          >
-            
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              type="submit"
+              variant="ghost"
+              size="icon"
+              className="text-gray-400 hover:text-purple-700"
+              aria-label="Search courses"
+            >
+              <Search size={22} />
+            </Button>
+          </motion.div>
 
           {/* Animated Border */}
           <motion.span
